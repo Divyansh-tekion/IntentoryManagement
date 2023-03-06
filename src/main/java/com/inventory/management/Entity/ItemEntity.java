@@ -17,7 +17,7 @@ public class ItemEntity {
     private String id;
     private String name;
     private int quantity;
-    private String brand_Id;
+    private String brand;
     private int rate;
     private String description;
 }
