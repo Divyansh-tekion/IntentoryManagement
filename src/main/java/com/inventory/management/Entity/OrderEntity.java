@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,6 +18,5 @@ public class OrderEntity {
     @MongoId
     private String id;
     private String customer_Id;
-    private String  product_Id;
-    private int quantity;
+    private List<ItemEntity> items;
 }

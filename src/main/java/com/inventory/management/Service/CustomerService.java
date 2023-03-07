@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Service
 public class CustomerService {
 
@@ -14,6 +16,19 @@ public class CustomerService {
 
     public String addCustomer(CustomerEntity newCustomer){
         customerRepo.save(newCustomer);
-        return "Customer added successfully";
+        return "new customer is " + newCustomer.toString();
+    };
+
+    public String deleteCustomer(String customerId){
+        customerRepo.deleteById(customerId);
+        return "Customer removed successfully";
+    } ;
+
+    public List<CustomerEntity> getAllCustomer(){
+        return customerRepo.findAll();
+    }
+
+    public CustomerEntity getCustomerById(String customerId) {
+        return customerRepo.findById(customerId).get();
     };
 }
